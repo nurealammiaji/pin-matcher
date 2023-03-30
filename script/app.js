@@ -5,7 +5,8 @@ function fourDigitPin() {
         return pin;
     }
     else {
-        fourDigitPin();
+        console.log(pin);
+        return fourDigitPin();
     }
 }
 
@@ -15,5 +16,8 @@ function pinGenerator() {
 }
 
 document.getElementById('btn-pin-generator').addEventListener('click', function(){
-    let pinGen = fourDigitPin();
+    let pin = fourDigitPin();
+
+    let pinDisplay = document.getElementById('pin-display');
+    pinDisplay.value = pin;
 })
