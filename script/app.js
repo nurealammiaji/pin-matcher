@@ -1,3 +1,5 @@
+// Four Digit PIN Generator
+
 function fourDigitPin() {
     let pin = pinGenerator();
     let pinString = pin + '';
@@ -5,7 +7,6 @@ function fourDigitPin() {
         return pin;
     }
     else {
-        console.log(pin);
         return fourDigitPin();
     }
 }
@@ -20,4 +21,12 @@ document.getElementById('btn-pin-generator').addEventListener('click', function(
 
     let pinDisplay = document.getElementById('pin-display');
     pinDisplay.value = pin;
+})
+
+
+// PIN Input Pad
+
+document.getElementById('keypad').addEventListener('click', function(event){
+    let keyPad = event.target.innerText;
+    console.log(keyPad);
 })
