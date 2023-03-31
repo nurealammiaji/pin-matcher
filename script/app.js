@@ -28,5 +28,11 @@ document.getElementById('btn-pin-generator').addEventListener('click', function(
 
 document.getElementById('keypad').addEventListener('click', function(event){
     let keyPad = event.target.innerText;
-    console.log(keyPad);
+
+    let keyDisplay = document.getElementById('key-display');
+    let keyDisplayOld = keyDisplay.value;
+    let keyDisplayNew = keyPad;
+    let keyDisplayCurrent = keyDisplayOld + keyDisplayNew;
+    keyDisplay.value = keyDisplayCurrent;
+
 })
