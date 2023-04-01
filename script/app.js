@@ -27,12 +27,24 @@ document.getElementById('btn-pin-generator').addEventListener('click', function(
 // PIN Input Pad
 
 document.getElementById('keypad').addEventListener('click', function(event){
-    let keyPad = event.target.innerText;
+    let keyPadValue = event.target.innerText;
 
     let keyDisplay = document.getElementById('key-display');
-    let keyDisplayOld = keyDisplay.value;
-    let keyDisplayNew = keyPad;
-    let keyDisplayCurrent = keyDisplayOld + keyDisplayNew;
-    keyDisplay.value = keyDisplayCurrent;
+    let keyDisplayValue = keyDisplay.value;
+    let keyDisplayNew = keyDisplayValue + keyPadValue;
 
+    if (isNaN(keyPadValue)) {
+        if (keyPadValue === "C") {
+            keyDisplay.value = '';
+        }
+        else if(keyPadValue === "<") {
+            let keySplit = keyDisplayValue.split('');
+            keySplit.pop();
+            let keyJoin = keySplit.join('');
+            keyDisplay.value = keyJoin;
+        }
+    }
+    else {
+        keyDisplay.value = keyDisplayNew;
+    }
 })
