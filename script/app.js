@@ -1,4 +1,4 @@
-// Four Digit PIN Generator
+// PIN Generator
 
 function fourDigitPin() {
     let pin = pinGenerator();
@@ -47,4 +47,29 @@ document.getElementById('keypad').addEventListener('click', function(event){
     else {
         keyDisplay.value = keyDisplayNew;
     }
+
+
+    // PIN Matcher
+
+    document.getElementById('btn-submit').addEventListener('click', function(){
+        
+        let generatedPin = document.getElementById('pin-display');
+        let generatedPinValue = generatedPin.value;
+        let typedPin = document.getElementById('key-display');
+        let typedPinValue = typedPin.value;
+        
+        let success = document.getElementById('success');
+        let unsuccess = document.getElementById('unsuccess');
+
+        if (generatedPinValue === typedPinValue) {
+            success.style.display = 'block';
+            unsuccess.style.display = 'none';
+        }
+        else {
+            unsuccess.style.display = 'block';
+            success.style.display = 'none';
+        }
+    })
 })
+
+
